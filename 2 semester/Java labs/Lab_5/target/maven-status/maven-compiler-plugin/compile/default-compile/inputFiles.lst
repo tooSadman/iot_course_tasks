@@ -1,0 +1,13 @@
+/home/sadman/Github/Java_course/Lab_5/src/main/java/com/ua/lviv/iot/writer/SparesWriter.java
+/home/sadman/Github/Java_course/Lab_5/src/main/java/com/ua/lviv/iot/manager/SparesManager.java
+/home/sadman/Github/Java_course/Lab_5/src/main/java/com/ua/lviv/iot/spares/CategoryEnum.java
+/home/sadman/Github/Java_course/Lab_5/src/main/java/com/ua/lviv/iot/spares/Chassiss.java
+/home/sadman/Github/Java_course/Lab_5/src/main/java/com/ua/lviv/iot/server/SparesService.java
+/home/sadman/Github/Java_course/Lab_5/src/main/java/com/ua/lviv/iot/rest/config/JaxRsConfig.java
+/home/sadman/Github/Java_course/Lab_5/src/main/java/com/ua/lviv/iot/spares/Spares.java
+/home/sadman/Github/Java_course/Lab_5/src/main/java/com/ua/lviv/iot/persistence/dao/SparesDaoImpl.java
+/home/sadman/Github/Java_course/Lab_5/src/main/java/com/ua/lviv/iot/persistence/dao/IDao.java
+/home/sadman/Github/Java_course/Lab_5/src/main/java/com/ua/lviv/iot/persistence/dao/AbstractDao.java
+/home/sadman/Github/Java_course/Lab_5/src/main/java/com/ua/lviv/iot/persistence/dao/SparesDao.java
+/home/sadman/Github/Java_course/Lab_5/src/main/java/com/ua/lviv/iot/spares/Electronics.java
+/home/sadman/Github/Java_course/Lab_5/src/main/java/com/ua/lviv/iot/spares/Wheels.java
