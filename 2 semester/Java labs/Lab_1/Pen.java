@@ -2,102 +2,105 @@ public class Pen {
 
 //import org.omg.CORBA.StringHolder;
 
-  private int amount;
-  private String color;
-  private String type;
-  private double size;
-  private double price;
+    private int amount;
+    private String color;
+    private String type;
+    private double size;
+    private double price;
 
-  static int totalAmount;
+    static int totalAmount;
 
-  /* Constructors: default, 4 fields, all fields */
+    /* Constructors: default, 4 fields, all fields */
 
-  Pen() {};
+    Pen() {
+    }
 
-  public Pen(int amount, String color, String type, double price){
-    this.amount = amount;
-    this.color = color;
-    this.type = type;
-    this.price = price;
-  }
+    ;
 
-  public Pen(int amount, String color, String type, double size, double price, int totalAmount){
-    this.amount = amount;
-    this.color = color;
-    this.type = type;
-    this.price = price;
-    this.size = size;
-    this.totalAmount = totalAmount;
-  }
+    public Pen(int amount, String color, String type, double price) {
+        this.amount = amount;
+        this.color = color;
+        this.type = type;
+        this.price = price;
+    }
 
-  /* ACCESS METHODS */
+    public Pen(int amount, String color, String type, double size, double price, int totalAmount) {
+        this.amount = amount;
+        this.color = color;
+        this.type = type;
+        this.price = price;
+        this.size = size;
+        this.totalAmount = totalAmount;
+    }
 
-//amount
-  public int getAmount(){
-    return amount;
-  }
+    /* ACCESS METHODS */
 
-  public void setAmount(int amount){
-    this.amount = amount;
-  }
+    //amount
+    public int getAmount() {
+        return amount;
+    }
 
-//color
-  public String getColor(){
-    return color;
-  }
+    public void setAmount(int amount) {
+        this.amount = amount;
+    }
 
-  public void setColor(String color){
-    this.color = color;
-  }
+    //color
+    public String getColor() {
+        return color;
+    }
 
-//type
-  public String getType(){
-    return type;
-  }
+    public void setColor(String color) {
+        this.color = color;
+    }
 
-  public void setType(String type){
-    this.type = type;
-  }
+    //type
+    public String getType() {
+        return type;
+    }
 
-//size
-  public double getSize(){
-    return size;
-  }
+    public void setType(String type) {
+        this.type = type;
+    }
 
-  public void setSize(double size){
-    this.size = size;
-  }
+    //size
+    public double getSize() {
+        return size;
+    }
 
-//price
-  public double getPrice(){
-    return price;
-  }
+    public void setSize(double size) {
+        this.size = size;
+    }
 
-  public void setPrice(double price){
-    this.price = price;
-  }
+    //price
+    public double getPrice() {
+        return price;
+    }
 
-  /* Methods */
+    public void setPrice(double price) {
+        this.price = price;
+    }
 
-  public String toString(){
-    return getAmount() + " " + getPrice() + " " + getColor() + " " + getSize() + " " + getType();
-  }
+    /* Methods */
 
-  public static void printStaticSum(){
-    System.out.println("totalAmount: " + totalAmount);
-  }
+    public String toString() {
+        return getAmount() + " " + getPrice() + " " + getColor() + " " + getSize() + " " + getType();
+    }
 
-  public void printSum(){
-    System.out.println("totalAmount: " + totalAmount);
-  }
+    public static void printStaticSum() {
+        System.out.println("totalAmount: " + totalAmount);
+    }
 
-  public void resetValues(int amount, String color, String type, double size, double price, int totalAmount) {
-         this.amount = amount;
-         this.color = color;
-         this.type = type;
-         this.size = size;
-         this.price = price;
-         this.totalAmount = totalAmount;
-     }
+    public void printSum() {
+        System.out.println("totalAmount: " + totalAmount);
+    }
+
+    public void resetValues(int amount, String color, String type, double size, double price, int totalAmount) {
+        this.amount = amount;
+        this.color = color;
+        this.type = type;
+        this.size = size;
+        this.price = price;
+        this.totalAmount = totalAmount;
+    }
 
 }
