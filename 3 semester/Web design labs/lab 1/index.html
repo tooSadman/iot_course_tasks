@@ -13,7 +13,6 @@
         margin-top: 30px;
         margin-bottom: 30px;
       }
-      .paragraph {}
     </style>
   </head>
   <body>
@@ -27,7 +26,7 @@
         </h5>
       </p>
       <div>
-        <h1 style="text-align:center;">THE PAST, PRESENT & FUTURE OF LOCAL STORAGE FOR WEB APPLICATIONS</h1>
+        <h1 style="text-align:center;">№7. <br />THE PAST, PRESENT & FUTURE OF LOCAL STORAGE FOR WEB APPLICATIONS</h1>
       </div>
       <p style="text-align: center; margin-top: 20px; text-decoration: underline;">
         <a href="#">show table of content</a>
@@ -38,7 +37,7 @@
       <div>
         <h1 style="text-align:center;">DIVING IN</h1>
       </div>
-      <div class="paragraph">
+      <div>
         <p>
           Persistent local storage is one of the areas where native client applications have held an advantage over web applications. For native applications, the operating system typically provides an abstraction layer for storing and retrieving
           application-specific data like preferences or runtime state. These values may be stored in the registry, INI files, XML files, or some other place according to platform convention. If your native client application needs local storage beyond
@@ -135,7 +134,7 @@
           <p style="text-align:center">
             HTML5 STORAGE SUPPORT
           </p>
-          <table>
+          <table border="1">
             <thead>
               <tr>
                 <th>IE</th>
@@ -382,11 +381,11 @@ drawboard();
 return true;
 }</code></pre>
 
-          <p>The most important part of this function is the caveat that I mentioned earlier in this chapter, which I&rsquo;ll repeat here:
-            <em>Data is stored as strings. If you are storing something other than a string, you&rsquo;ll need to coerce it yourself when you retrieve it.</em>
+          <p>The most important part of this function is the caveat that I mentioned earlier in this chapter, which I'll repeat here:
+            <em>Data is stored as strings. If you are storing something other than a string, you'll need to coerce it yourself when you retrieve it.</em>
             For example, the flag for whether there is a game in progress (<code>gGameInProgress</code>) is a Boolean. In the
             <code>saveGameState()</code>
-            function, we just stored it and didn&rsquo;t worry about the datatype:
+            function, we just stored it and didn't worry about the datatype:
 
             <pre><code>localstorage["halma.game.in.progress"] = <mark>ggameinprogress</mark>;</code></pre>
 
@@ -534,7 +533,7 @@ return true;
                       on Opera Developer Community
                     <li>
                       <a href="">DOM Storage</a>
-                      on Mozilla Developer Center. (Note: most of this page is devoted to Firefox&rsquo;s prototype implementation of a
+                      on Mozilla Developer Center. (Note: most of this page is devoted to Firefox's prototype implementation of a
                       <code>globalStorage</code>
                       object, a non-standard precursor to
                       <code>localStorage</code>. Mozilla added support for the standard
@@ -579,8 +578,8 @@ return true;
                         <li>
                           <a href="">Web Database demonstration</a>
                         <li>
-                          <a href="">persistence.js</a>, an &ldquo;asynchronous JavaScript
-                          <abbr>ORM</abbr>&rdquo; built on top of Web
+                          <a href="">persistence.js</a>, an "asynchronous JavaScript
+                          <abbr>ORM</abbr>" built on top of Web
                           <abbr>SQL</abbr>
                           Database and Gears
                       </ul>
@@ -629,7 +628,7 @@ return true;
                           Copyright MMIX–MMXI Mark Pilgrim
                         </p>
                       </div>
-                      <div>
+                      <div align="center">
                         <input id="firstname" type="text" placeholder="powered by Google" required="required">
                         <input type="submit" value="Search">
                       </div>
