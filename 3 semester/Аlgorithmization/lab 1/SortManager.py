@@ -2,36 +2,44 @@ from datetime import datetime
 
 
 class SortManager:
+
+    compare_num = 0
+    swap_num = 0
+
+    @staticmethod
+    def compare_count(n):
+        SortManager.compare_num += n
+        pass
+
+    @staticmethod
+    def swap_count(n):
+        SortManager.swap_num += n
+        pass
+
+    @staticmethod
+    def count_reset():
+        SortManager.compare_num = 0
+        SortManager.swap_num = 0
+
     # sorts arr elements by total volume in decreasing order
     @staticmethod
     def insertion_sort(arr):
-        start_time = datetime.now().microsecond
-        compare_count = 0
-        swap_count = 0
         # sorting
         for index in range(len(arr) - 1, -1, -1):
             current_value = arr[index].total_volume
+            current_index = arr[index]
             position = index
             while position < (
                     len(arr) -
                     1) and arr[position + 1].total_volume > current_value:
-                arr[position].total_volume = arr[position + 1].total_volume
+                arr[position] = arr[position + 1]
                 position += 1
-                compare_count += 2
-            compare_count += 2
-            swap_count += 1
-            arr[position].total_volume = current_value
+                SortManager.compare_count(2)
+            SortManager.compare_count(2)
+            SortManager.swap_count(1)
+            arr[position] = current_index
 
-        # output
-        print("Insertion sort by memory RESULTS:")
-        print("Time spent: %s mills" %
-              (datetime.now().microsecond - start_time))
-        print("Number of comparisons: " + str(compare_count))
-        print("Number of item swaps: " + str(swap_count))
-        print("Final arr:")
-        for j in range(len(arr)):
-            print(arr[j])
-        print("\n====================\n")
+        return arr
 
     #sorts elemnets with Quicksort by power consumption in increasing order
 
@@ -47,12 +55,15 @@ class SortManager:
         for j in range(low, high):
             # If current element is smaller than or
             # equal to pivot
+            SortManager.compare_count(1)
             if arr[j].power_consumption <= pivot:
 
                 # increment index of smaller element
                 i = i + 1
+                SortManager.swap_count(2)
                 arr[i], arr[j] = arr[j], arr[i]
 
+        SortManager.swap_count(2)
         arr[i + 1], arr[high] = arr[high], arr[i + 1]
         return (i + 1)
 
@@ -64,11 +75,7 @@ class SortManager:
     # Function to do Quick sort
 
     def quickSort(arr, low, high):
-        start_time = datetime.now().microsecond
-        compare_count = 0
-        swap_count = 0
 
-        # sorting
         if low < high:
 
             # pi is partitioning index, arr[p] is now
@@ -80,13 +87,4 @@ class SortManager:
             SortManager.quickSort(arr, low, pi - 1)
             SortManager.quickSort(arr, pi + 1, high)
 
-        # output
-        print("Quicksort by memory RESULTS:")
-        print("Time spent: %s mills" %
-              (datetime.now().microsecond - start_time))
-        print("Number of comparisons: " + str(compare_count))
-        print("Number of item swaps: " + str(swap_count))
-        print("Final arr:")
-        for j in range(len(arr)):
-            print(arr[j])
-        print("\n====================\n")
+        return arr

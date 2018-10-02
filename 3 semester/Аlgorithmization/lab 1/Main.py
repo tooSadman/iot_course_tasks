@@ -1,4 +1,5 @@
 from SortManager import SortManager
+from datetime import datetime
 
 
 class CoolingChamber(object):
@@ -43,5 +44,36 @@ class Main:
 Main.init()
 Main.print_array("Initial array", Main.chambers)
 
-SortManager.quickSort(Main.chambers, 0, len(Main.chambers) - 1)
-SortManager.insertion_sort(Main.chambers)
+quicksort_arr = Main.chambers
+insertion_sort_arr = Main.chambers
+
+# Quicksort
+start = datetime.now().microsecond
+quicksort_arr = SortManager.quickSort(Main.chambers, 0, len(Main.chambers) - 1)
+finish = datetime.now().microsecond - start
+print("Quicksort by memory RESULTS:")
+print("Time spent: %s mills" %
+      (finish))
+print("Number of comparisons: " + str(SortManager.compare_num))
+print("Number of item swaps: " + str(SortManager.swap_num))
+print("Final arr:")
+for j in range(len(quicksort_arr)):
+    print(quicksort_arr[j])
+print("\n====================\n")
+
+SortManager.count_reset()
+start = 0
+finish = 0
+
+# Insertion sorting
+start = datetime.now().microsecond
+insertion_sort_arr = SortManager.insertion_sort(Main.chambers)
+finish = datetime.now().microsecond - start
+print("Insertion sort by memory RESULTS:")
+print("Time spent: %s mills" %
+      (finish))
+print("Number of comparisons: " + str(SortManager.compare_num))
+print("Number of item swaps: " + str(SortManager.swap_num))
+for j in range(len(insertion_sort_arr)):
+    print(insertion_sort_arr[j])
+print("\n====================\n")
