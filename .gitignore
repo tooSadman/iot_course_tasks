@@ -1,6 +1,7 @@
 .metadata
 bin/
 tmp/
+*.exe
 *.tmp
 *.bak
 *.swp
