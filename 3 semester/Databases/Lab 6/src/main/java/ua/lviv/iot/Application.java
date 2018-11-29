@@ -368,13 +368,13 @@ public class Application {
         Scanner input = new Scanner(System.in);
         System.out.println("\nInput Pilot For Aircraft: ");
         String pilot = input.next();
-        System.out.println("Input Aircraft Name: ");
-        String aircraft_name = input.next();
+        System.out.println("Input Hangar City Name: ");
+        String hangar_city = input.next();
 
         CallableStatement callableStatement;
         callableStatement = connection.prepareCall("{CALL insert_hangaraircraft(?, ?)}");
         callableStatement.setString(1, pilot);
-        callableStatement.setString(2, aircraft_name);
+        callableStatement.setString(2, hangar_city);
         ResultSet rs = callableStatement.executeQuery();
 
         while (rs.next()) {
