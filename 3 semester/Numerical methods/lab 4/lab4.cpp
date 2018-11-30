@@ -3,7 +3,7 @@
 using namespace std;
 float f(float x)
 {
-        return(log(log(x)));
+        return(1/(x*log(x)));
 }
 float integralpram(int a,int b,int n)
 {
