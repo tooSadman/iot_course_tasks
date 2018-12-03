@@ -1,0 +1,22 @@
+CACHE MANIFEST
+# 29-10-2018
+
+index.html
+matches.html
+contacts.html
+fans.html
+news.html
+main.css
+
+css-bootstrap/bootstrap.min.css
+
+img/logo.png
+img/map.jpg
+img/navi.jpg
+img/slider.jpeg
+
+NETWORK:
+*
+ 
+FALLBACK:
+. error.html
