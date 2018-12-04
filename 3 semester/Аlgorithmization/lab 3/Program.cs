@@ -65,6 +65,7 @@ public static int CountPairs(ICollection<HashSet<int> > tribes)
 {
         //0 - women, 1 - men
         var members = new int[tribes.Count, 2];
+        var l=0; //numer of men
 
         //Count and sort females and males from each tribe
         var i = 0;
@@ -72,20 +73,16 @@ public static int CountPairs(ICollection<HashSet<int> > tribes)
         {
                 members[i, 0] = tribe.Count(x => x % 2 == 0);
                 members[i, 1] = tribe.Count - members[i, 0];
-
+                l += members[i, 1];
                 i++;
         }
 
         var pairsCount = 0;
-        for (int j = 0; j < tribes.Count; j++)
+        for (int j=0; j < tribes.Count; j++)
         {
-                for (int k = 0; k < tribes.Count; k++)
-                {
-                        if (j != k)
-                        {
-                                pairsCount += members[j, 0] * members[k, 1];
-                        }
-                }
+
+            pairsCount += members[j,0] * (l - members[j,1]);
+
         }
 
         return pairsCount;
