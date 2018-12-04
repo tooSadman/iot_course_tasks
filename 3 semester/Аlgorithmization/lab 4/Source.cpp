@@ -10,18 +10,14 @@ using namespace std;
 void dfs (int v, vector<vector<int>> &graph, vector<bool> &used, vector<set<int>> &counter)
 {
 	used[v] = true;
-
-
 	counter[v].insert(graph[v].begin(), graph[v].end());
 
 	for (vector<int>::iterator j = graph[v].begin(); j != graph[v].end(); ++j)
 		counter[v].insert(graph[*j].begin(), graph[*j].end());
 
-
 	for (vector<int>::iterator i = graph[v].begin(); i != graph[v].end(); ++i)
 		if (!used[*i])
 			dfs (*i, graph, used, counter);
-
 }
 
 vector<vector<char>> readMatrix()
@@ -37,7 +33,6 @@ vector<vector<char>> readMatrix()
 		matrix[0].push_back(s[i]);
 	}
 
-
 	for (int i = 1; i < s.length(); i++)
 	{
 		cin >> s;
@@ -46,7 +41,6 @@ vector<vector<char>> readMatrix()
 			matrix[i].push_back(s[j]);
 		}
 	}
-
 	return matrix;
 }
 
@@ -81,10 +75,6 @@ int main()
 			max = student.size() - 1;
 		}
 	}
-
 	cout << max << endl;
-
-	system("pause");
-
 	return 0;
 }
