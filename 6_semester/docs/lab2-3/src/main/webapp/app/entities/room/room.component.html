@@ -1,0 +1,81 @@
+<div>
+    <h2 id="page-heading">
+        <span>Rooms</span>
+
+        <button id="jh-create-entity" class="btn btn-primary float-right jh-create-entity create-room" [routerLink]="['/room/new']">
+            <fa-icon icon="plus"></fa-icon>
+            <span>
+            Create a new Room
+            </span>
+        </button>
+    </h2>
+
+    <jhi-alert-error></jhi-alert-error>
+
+    <jhi-alert></jhi-alert>
+
+    <div class="alert alert-warning" id="no-result" *ngIf="rooms?.length === 0">
+        <span>No rooms found</span>
+    </div>
+
+    <div class="table-responsive" id="entities" *ngIf="rooms?.length > 0">
+        <table class="table table-striped" aria-describedby="page-heading">
+            <thead>
+                <tr jhiSort [(predicate)]="predicate" [(ascending)]="ascending" [callback]="reset.bind(this)">
+                    <th scope="col"  jhiSortBy="id"><span>ID</span> <fa-icon icon="sort"></fa-icon></th>
+                    <th scope="col"  jhiSortBy="number"><span>Number</span> <fa-icon icon="sort"></fa-icon></th>
+                    <th scope="col"  jhiSortBy="location"><span>Location</span> <fa-icon icon="sort"></fa-icon></th>
+                    <th scope="col"  jhiSortBy="owner.id"><span>Owner</span> <fa-icon icon="sort"></fa-icon></th>
+                    <th scope="col"  jhiSortBy="customer.id"><span>Customer</span> <fa-icon icon="sort"></fa-icon></th>
+                    <th scope="col"  jhiSortBy="receptionist.id"><span>Receptionist</span> <fa-icon icon="sort"></fa-icon></th>
+                    <th scope="col"></th>
+                </tr>
+            </thead>
+            <tbody infinite-scroll (scrolled)="loadPage(page + 1)" [infiniteScrollDisabled]="page >= links['last']" [infiniteScrollDistance]="0">
+                <tr *ngFor="let room of rooms ;trackBy: trackId">
+                    <td><a [routerLink]="['/room', room.id, 'view']">{{ room.id }}</a></td>
+                    <td>{{ room.number }}</td>
+                    <td>{{ room.location }}</td>
+                    <td>
+                        <div *ngIf="room.owner">
+                            <a [routerLink]="['/owner', room.owner?.id, 'view']" >{{ room.owner?.id }}</a>
+                        </div>
+                    </td>
+                    <td>
+                        <div *ngIf="room.customer">
+                            <a [routerLink]="['/customer', room.customer?.id, 'view']" >{{ room.customer?.id }}</a>
+                        </div>
+                    </td>
+                    <td>
+                        <div *ngIf="room.receptionist">
+                            <a [routerLink]="['/receptionist', room.receptionist?.id, 'view']" >{{ room.receptionist?.id }}</a>
+                        </div>
+                    </td>
+                    <td class="text-right">
+                        <div class="btn-group">
+                            <button type="submit"
+                                    [routerLink]="['/room', room.id, 'view']"
+                                    class="btn btn-info btn-sm">
+                                <fa-icon icon="eye"></fa-icon>
+                                <span class="d-none d-md-inline">View</span>
+                            </button>
+
+                            <button type="submit"
+                                    [routerLink]="['/room', room.id, 'edit']"
+                                    class="btn btn-primary btn-sm">
+                                <fa-icon icon="pencil-alt"></fa-icon>
+                                <span class="d-none d-md-inline">Edit</span>
+                            </button>
+
+                            <button type="submit" (click)="delete(room)"
+                                    class="btn btn-danger btn-sm">
+                                <fa-icon icon="times"></fa-icon>
+                                <span class="d-none d-md-inline">Delete</span>
+                            </button>
+                        </div>
+                    </td>
+                </tr>
+            </tbody>
+        </table>
+    </div>
+</div>

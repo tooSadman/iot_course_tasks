@@ -1,0 +1,33 @@
+<?xml version="1.0" encoding="utf-8"?>
+<databaseChangeLog
+    xmlns="http://www.liquibase.org/xml/ns/dbchangelog"
+    xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+    xsi:schemaLocation="http://www.liquibase.org/xml/ns/dbchangelog http://www.liquibase.org/xml/ns/dbchangelog/dbchangelog-3.8.xsd">
+
+    <property name="now" value="now()" dbms="h2"/>
+    <property name="now" value="now()" dbms="mysql"/>
+
+    <property name="floatType" value="float4" dbms="postgresql, h2"/>
+    <property name="floatType" value="float" dbms="mysql, oracle, mssql, mariadb"/>
+    <property name="clobType" value="clob" dbms="h2"/>
+    <property name="clobType" value="clob" dbms="mysql, oracle, mssql, mariadb, postgresql"/>
+    <property name="uuidType" value="varchar(36)" dbms="h2, mysql, mariadb"/>
+
+    <include file="config/liquibase/changelog/00000000000000_initial_schema.xml" relativeToChangelogFile="false"/>
+    <include file="config/liquibase/changelog/20200505215700_added_entity_Customer.xml" relativeToChangelogFile="false"/>
+    <include file="config/liquibase/changelog/20200505215800_added_entity_Receptionist.xml" relativeToChangelogFile="false"/>
+    <include file="config/liquibase/changelog/20200505215900_added_entity_Inventory.xml" relativeToChangelogFile="false"/>
+    <include file="config/liquibase/changelog/20200505220000_added_entity_Room.xml" relativeToChangelogFile="false"/>
+    <include file="config/liquibase/changelog/20200505220100_added_entity_Bill.xml" relativeToChangelogFile="false"/>
+    <include file="config/liquibase/changelog/20200505220200_added_entity_FoodItem.xml" relativeToChangelogFile="false"/>
+    <include file="config/liquibase/changelog/20200505220300_added_entity_Manager.xml" relativeToChangelogFile="false"/>
+    <include file="config/liquibase/changelog/20200505220400_added_entity_Owner.xml" relativeToChangelogFile="false"/>
+    <!-- jhipster-needle-liquibase-add-changelog - JHipster will add liquibase changelogs here -->
+    <include file="config/liquibase/changelog/20200505215700_added_entity_constraints_Customer.xml" relativeToChangelogFile="false"/>
+    <include file="config/liquibase/changelog/20200505215800_added_entity_constraints_Receptionist.xml" relativeToChangelogFile="false"/>
+    <include file="config/liquibase/changelog/20200505220000_added_entity_constraints_Room.xml" relativeToChangelogFile="false"/>
+    <include file="config/liquibase/changelog/20200505220100_added_entity_constraints_Bill.xml" relativeToChangelogFile="false"/>
+    <include file="config/liquibase/changelog/20200505220200_added_entity_constraints_FoodItem.xml" relativeToChangelogFile="false"/>
+    <include file="config/liquibase/changelog/20200505220300_added_entity_constraints_Manager.xml" relativeToChangelogFile="false"/>
+    <!-- jhipster-needle-liquibase-add-constraints-changelog - JHipster will add liquibase constraints changelogs here -->
+</databaseChangeLog>

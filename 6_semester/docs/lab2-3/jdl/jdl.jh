@@ -1,0 +1,74 @@
+entity Customer {
+	id Long
+    name String required unique maxlength(100)
+    phone String unique pattern(/^(\+\d{1,3}[- ]?)?\d{10}$/)
+ 	address String maxlength(100)
+    roomNumber Integer
+}
+
+entity Receptionist {
+	id Long
+    name String required unique maxlength(100)
+    phone String unique pattern(/^(\+\d{1,3}[- ]?)?\d{10}$/)
+ 	address String maxlength(100)
+}
+
+entity Inventory {
+	id Long
+    type String
+    status String
+}
+
+entity Room {
+	id Long
+    number Integer
+    location String
+}
+
+entity Bill {
+	id Long
+    number Integer
+}
+
+entity FoodItem {
+	id Long
+    name String
+}
+
+entity Manager {
+	id Long
+  	name String required unique maxlength(100)
+    phone String unique pattern(/^(\+\d{1,3}[- ]?)?\d{10}$/)
+}
+
+entity Owner {
+	id Long
+  	name String required unique maxlength(100)
+    phone String unique pattern(/^(\+\d{1,3}[- ]?)?\d{10}$/)
+}
+
+relationship ManyToMany {
+	Customer{bills} to Bill{customers}
+}
+
+relationship OneToOne {
+	Manager{owner} to Owner{manager}
+    Receptionist{owner} to Owner{receptionist}
+    Customer{owner} to Owner{customer}
+    FoodItem{owner} to Owner{foodItem}
+    Bill{owner} to Owner{bill}
+    Room{owner} to Owner{room}
+}
+
+relationship OneToMany {
+	Manager{customers} to Customer{manager}
+    Inventory{managers} to Manager
+    Customer{foodItems} to FoodItem{customer}
+    Customer{room} to Room{customer}
+    Bill{receptionists} to Receptionist{bill}
+    Receptionist{managedRooms} to Room{receptionist}
+}
+
+filter all 
+paginate all with infinite-scroll
+service all with serviceImpl

@@ -1,0 +1,67 @@
+<div>
+    <h2 id="page-heading">
+        <span>Bills</span>
+
+        <button id="jh-create-entity" class="btn btn-primary float-right jh-create-entity create-bill" [routerLink]="['/bill/new']">
+            <fa-icon icon="plus"></fa-icon>
+            <span>
+            Create a new Bill
+            </span>
+        </button>
+    </h2>
+
+    <jhi-alert-error></jhi-alert-error>
+
+    <jhi-alert></jhi-alert>
+
+    <div class="alert alert-warning" id="no-result" *ngIf="bills?.length === 0">
+        <span>No bills found</span>
+    </div>
+
+    <div class="table-responsive" id="entities" *ngIf="bills?.length > 0">
+        <table class="table table-striped" aria-describedby="page-heading">
+            <thead>
+                <tr jhiSort [(predicate)]="predicate" [(ascending)]="ascending" [callback]="reset.bind(this)">
+                    <th scope="col"  jhiSortBy="id"><span>ID</span> <fa-icon icon="sort"></fa-icon></th>
+                    <th scope="col"  jhiSortBy="number"><span>Number</span> <fa-icon icon="sort"></fa-icon></th>
+                    <th scope="col"  jhiSortBy="owner.id"><span>Owner</span> <fa-icon icon="sort"></fa-icon></th>
+                    <th scope="col"></th>
+                </tr>
+            </thead>
+            <tbody infinite-scroll (scrolled)="loadPage(page + 1)" [infiniteScrollDisabled]="page >= links['last']" [infiniteScrollDistance]="0">
+                <tr *ngFor="let bill of bills ;trackBy: trackId">
+                    <td><a [routerLink]="['/bill', bill.id, 'view']">{{ bill.id }}</a></td>
+                    <td>{{ bill.number }}</td>
+                    <td>
+                        <div *ngIf="bill.owner">
+                            <a [routerLink]="['/owner', bill.owner?.id, 'view']" >{{ bill.owner?.id }}</a>
+                        </div>
+                    </td>
+                    <td class="text-right">
+                        <div class="btn-group">
+                            <button type="submit"
+                                    [routerLink]="['/bill', bill.id, 'view']"
+                                    class="btn btn-info btn-sm">
+                                <fa-icon icon="eye"></fa-icon>
+                                <span class="d-none d-md-inline">View</span>
+                            </button>
+
+                            <button type="submit"
+                                    [routerLink]="['/bill', bill.id, 'edit']"
+                                    class="btn btn-primary btn-sm">
+                                <fa-icon icon="pencil-alt"></fa-icon>
+                                <span class="d-none d-md-inline">Edit</span>
+                            </button>
+
+                            <button type="submit" (click)="delete(bill)"
+                                    class="btn btn-danger btn-sm">
+                                <fa-icon icon="times"></fa-icon>
+                                <span class="d-none d-md-inline">Delete</span>
+                            </button>
+                        </div>
+                    </td>
+                </tr>
+            </tbody>
+        </table>
+    </div>
+</div>
