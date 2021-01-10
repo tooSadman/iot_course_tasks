@@ -1,0 +1,15 @@
+# Databricks notebook source
+# DBTITLE 1,Mount Data Lake
+configs = {"fs.azure.account.auth.type": "OAuth",
+         "fs.azure.account.oauth.provider.type": "org.apache.hadoop.fs.azurebfs.oauth2.ClientCredsTokenProvider",
+         "fs.azure.account.oauth2.client.id": "e3679eeb-c988-4175-af88-c68fb56089f0",
+         "fs.azure.account.oauth2.client.secret": "zuca-8Cvsih66hmLg7.0xiIxP-NIuI.Z1m",
+         "fs.azure.account.oauth2.client.endpoint": "https://login.microsoftonline.com/8d0bf70e-8dbb-4da4-9163-2852235ccd8a/oauth2/token",
+         "fs.azure.createRemoteFileSystemDuringInitialization": "true"}
+
+dbutils.fs.mount(
+        source = "abfss://iot-db-container@iotdbsa.dfs.core.windows.net",
+        mount_point = "/mnt/labs",
+        extra_configs = configs)
+
+display(dbutils.fs.ls('mnt/labs'))
