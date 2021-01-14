@@ -1,30 +1,30 @@
-# Підготовка візуалізацій
+## lab 7
 
-1. Створюємо візуалізацію типу Pie
+1. Create Pie Visualization
 
 ![ssh-hd-insight](../img/7/1.png)
 
-2. При створенні візуалізації треба вибрати налаштування Bucket. Зберігаємо візуалізацію.
+2. We need to choose Bucket setting and save visualization. 
 
 ![ssh-hd-insight](../img/7/2.png)
 
-3. Аналогічно створюємо візуалізацію типу Line, але з налаштуваннями Split
+3. The same way create Line visualization, but with Split setting.
 
 ![ssh-hd-insight](../img/7/3.png)
 
-4. Створюємо візуалізацію типу Controls
+4. Create **Controls** visualization.
 
 ![ssh-hd-insight](../img/7/4.png)
 
-5. Додаємо створені візуалізації на Dashboard та зберігаємо його.
+5. Add saved visualizations to the dashboard and save it.
 
 ![ssh-hd-insight](../img/7/5.png)
 
-6. За допомогою Controls можна фільтрувати дані по необхідних характеристиках.
+6. We can use Controls filters to filter requests.
 
-# Kibana devTools запити
+### Kibana Dev Tools requests
 
-1. Топ-3 за полем map.current_budget.keyword
+1. Top-6 results for budget_fiscal_year.keyword fiels 
 ```
 GET _search
 {
@@ -38,7 +38,7 @@ GET _search
 
 ![ssh-hd-insight](../img/7/6.png)
 
-2. Фільтрація записів за датою
+2. current_budget.keyword filtration with field match
 ```
 GET _search
 {
