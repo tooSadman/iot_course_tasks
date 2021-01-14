@@ -1,7 +1,0 @@
-/lab5/src/main/java/com/lab5/resteventhub/dto/RequestDTO.java
-/lab5/src/main/java/com/lab5/resteventhub/RestEventHubApplication.java
-/lab5/src/main/java/com/lab5/resteventhub/LogService.java
-/lab5/src/main/java/com/lab5/resteventhub/service/SendDataConsoleImpl.java
-/lab5/src/main/java/com/lab5/resteventhub/web/rest/URLController.java
-/lab5/src/main/java/com/lab5/resteventhub/service/SendDataEventHubImpl.java
-/lab5/src/main/java/com/lab5/resteventhub/service/SendDataService.java
