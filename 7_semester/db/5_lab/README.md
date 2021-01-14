@@ -6,11 +6,13 @@
 4. Go to **Event Hubs** and create a new namespace. Chose a name for the workspace (e.g. iot-db-lab).
 5. Go to new workspace and create there a new Event Hub instance. Give it a name (e.g. iot-db-eventhub).
 6. Then go to the menu of newly created Event Hub entity and click on **Shared access policies**. After that create a new policy that should Listen and give it a name (e.g. iot-eh-listen).
-7. Next we need to make some changes in SendDataEventHubImpl.java file with the options from **Shared access policies** from EventHub instance ( _Primary key_ and _Connection string–primary key_ ).
-8. Make changes to SendDataConsoleImpl.java file with Redis instance options.
-9. Start the program with _./start_ command. Then open Postman and make POST calls to localhost:9000/url with body:
-    `{
+7. Next we need to make some changes in ```./config/jsonServer.toml``` file with values from Redis and EventHub instances.
+8. Start the program with running ```make```. Then open Postman and make POST calls to localhost:9000/url with body:
+    ```
+    {
         "url": "https://www.dallasopendata.com/resource/nr4f-efb3.json",
         "strategy": "eventHub"
-    }`
-10. Then you should see new messages in EventHub entity's Process Data view.
+    }
+    ```
+    Strategy could be changed also to ```redis```.
+9. Then you should see new messages in EventHub entity's Process Data view or in Redis console.
