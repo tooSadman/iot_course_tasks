@@ -1,3 +1,3 @@
-eventHub_conn_str = ""
+eventHub_conn_str = "Endpoint=sb://iot-db-lab.servicebus.windows.net/;SharedAccessKeyName=test-policy;SharedAccessKey=brnwqHa3XCqVFX43t0oWaC1uEwUarV0ahTG/0NmX/GY=;EntityPath=test-lab5"
 redis_addr = ""
 redis_pass = ""

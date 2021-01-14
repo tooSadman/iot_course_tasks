@@ -31,7 +31,7 @@ GET _search
 "size": 0,
 "aggs" : {
     "langs" : {
-        "terms" : { "field" : "map.current_budget.keyword",  "size" : 3 }
+        "terms" : { "field" : "budget_fiscal_year.keyword",  "size" : 6 }
     }
 }}
 ```
@@ -49,12 +49,12 @@ GET _search
           "must": [
             {
               "range": {
-                "map.budget_fiscal_year.keyword": {
-                  "gt": "2016-03-21T15:37:08.595919Z",
-                  "lte": "2017-04-21T15:52:08.595919Z"
+                "current_budget.keyword": {
+                  "gt": 5000000
                 }
               }
-            }
+            },
+            {"match": {"fundtype":"General Fund"}}
           ]
         }
       }
