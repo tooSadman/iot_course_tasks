@@ -1,0 +1,3 @@
+eventHub_conn_str = ""
+redis_addr = ""
+redis_pass = ""
