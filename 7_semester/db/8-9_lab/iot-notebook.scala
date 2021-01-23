@@ -23,14 +23,14 @@ var streamingInputDF =
 
 val filtered = streamingInputDF.select (
   from_unixtime(col("enqueuedTime").cast(LongType)).alias("enqueuedTime")
-     , get_json_object(col("body").cast(StringType), "$.incidentum").alias("year")
-     , get_json_object(col("body").cast(StringType), "$.servyr").alias("leading_cause")
-     , get_json_object(col("body").cast(StringType), "$.servnumid").alias("sex")
-     , get_json_object(col("body").cast(StringType), "$.watch").alias("race")
+     , get_json_object(col("body").cast(StringType), "$.id").alias("id")
+     , get_json_object(col("body").cast(StringType), "$.date").alias("data")
+     , get_json_object(col("body").cast(StringType), "$.name1").alias("name1")
+     , get_json_object(col("body").cast(StringType), "$.name2").alias("name2")
 )
 
 filtered.writeStream
-  .format("com.databricks.spark.json")
+  .format("com.databricks.spark.csv")
   .outputMode("append")
   .option("checkpointLocation", "/mnt/labs/lab9dir/")
   .start("/mnt/labs/lab9dir/")
