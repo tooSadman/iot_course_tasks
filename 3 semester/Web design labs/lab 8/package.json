@@ -9,7 +9,7 @@
   "author": "Andrii Stashkiv",
   "license": "MIT",
   "dependencies": {
-    "express": "^4.16.4"
+    "express": "^4.17.3"
   },
   "devDependencies": {
     "babel-preset-env": "^1.7.0",
